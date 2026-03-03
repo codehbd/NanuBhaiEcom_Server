@@ -46,6 +46,22 @@ const userSchema = new mongoose.Schema(
       enum: [true, false],
       default: false,
     },
+    bio: {
+      type: String,
+      default: "",
+    },
+    address: {
+      country: { type: String, default: "" },
+      cityState: { type: String, default: "" },
+      postalCode: { type: String, default: "" },
+      taxId: { type: String, default: "" },
+    },
+    socialLinks: {
+      facebook: { type: String, default: "" },
+      instagram: { type: String, default: "" },
+      twitter: { type: String, default: "" },
+      linkedin: { type: String, default: "" },
+    },
     refreshToken: String,
     emailVerifyToken: String,
     emailVerifyExpire: Date,

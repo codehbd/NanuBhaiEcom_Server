@@ -94,3 +94,23 @@ exports.deleteShipping = catchAsyncError(async (req, res, next) => {
     message: "Shipping deleted successfully!",
   });
 });
+
+// ==> get all divisions <==
+exports.getDivisions = catchAsyncError(async (req, res, next) => {
+  const divisions = [
+    { label: "All over BD", value: "All over BD" },
+    { label: "Insite City", value: "Insite City" },
+    { label: "Barishal", value: "Barishal" },
+    { label: "Chattogram", value: "Chattogram" },
+    { label: "Dhaka", value: "Dhaka" },
+    { label: "Khulna", value: "Khulna" },
+    { label: "Mymensingh", value: "Mymensingh" },
+    { label: "Rajshahi", value: "Rajshahi" },
+    { label: "Rangpur", value: "Rangpur" },
+    { label: "Sylhet", value: "Sylhet" },
+  ];
+  return res.status(200).json({
+    success: true,
+    divisions,
+  });
+});

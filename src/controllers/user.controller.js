@@ -306,7 +306,7 @@ exports.logoutUser = catchAsyncError(async (req, res, next) => {
 
 // ==> update user profile <==
 exports.updateProfile = catchAsyncError(async (req, res, next) => {
-  let { name, phone } = req.body;
+  let { name, phone, bio, address, socialLinks } = req.body;
   const userId = req.user._id;
   const user = await User.findById(req.user._id);
   if (!user) {
@@ -316,6 +316,19 @@ exports.updateProfile = catchAsyncError(async (req, res, next) => {
   let updatedData = {};
   if (name) updatedData.name = name || user.name;
   if (phone) updatedData.phone = phone || user.phone;
+  if (bio !== undefined) updatedData.bio = bio;
+  if (address) {
+    updatedData.address = {
+      ...user.address,
+      ...address,
+    };
+  }
+  if (socialLinks) {
+    updatedData.socialLinks = {
+      ...user.socialLinks,
+      ...socialLinks,
+    };
+  }
 
   if (req.file && user?.provider === "credentials") {
     if (user?.image) {

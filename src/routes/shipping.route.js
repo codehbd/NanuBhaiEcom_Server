@@ -17,6 +17,7 @@ shippingRouter
     ShippingController.createShipping
   );
 shippingRouter.route("/all").get(ShippingController.getAllShipping);
+shippingRouter.route("/divisions").get(ShippingController.getDivisions);
 shippingRouter
   .route("/:id")
   .get(authCheck, roleCheck("admin"), ShippingController.getSingleShipping)
