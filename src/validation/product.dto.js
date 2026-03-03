@@ -34,6 +34,10 @@ const createProductSchema = zod.object({
     .number("Extra price must be number")
     .nonnegative("Previous price must be 0 or positive")
     .optional(),
+  buyingPrice: zod.coerce
+    .number("Buying price must be number")
+    .nonnegative("Buying price must be 0 or positive")
+    .optional(),
   stock: zod.coerce
     .number("Stock must be number")
     .positive("Stock must be positive")
@@ -84,6 +88,10 @@ const updateProductSchema = zod.object({
   extraPrice: zod.coerce
     .number("Extra price must be number")
     .nonnegative("Previous price must be 0 or positive")
+    .optional(),
+  buyingPrice: zod.coerce
+    .number("Buying price must be number")
+    .nonnegative("Buying price must be 0 or positive")
     .optional(),
   stock: zod.coerce
     .number("Stock must be number")

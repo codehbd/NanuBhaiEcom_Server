@@ -23,6 +23,7 @@ exports.createProduct = catchAsyncError(async (req, res, next) => {
     price,
     previousPrice,
     extraPrice,
+    buyingPrice,
     location,
     stock,
     featured,
@@ -50,6 +51,7 @@ exports.createProduct = catchAsyncError(async (req, res, next) => {
       price,
       previousPrice: previousPrice ? previousPrice : null,
       extraPrice: extraPrice ? extraPrice : null,
+      buyingPrice: buyingPrice ? buyingPrice : null,
       location,
       stock,
       featured: featured ? true : false,
@@ -83,6 +85,7 @@ exports.updateProduct = catchAsyncError(async (req, res, next) => {
     price,
     previousPrice,
     extraPrice,
+    buyingPrice,
     stock,
     featured,
     location,
@@ -117,6 +120,9 @@ exports.updateProduct = catchAsyncError(async (req, res, next) => {
   }
   if (extraPrice) {
     updateData.extraPrice = extraPrice ? extraPrice : null;
+  }
+  if (buyingPrice) {
+    updateData.buyingPrice = buyingPrice ? buyingPrice : null;
   }
   if (featured) {
     updateData.featured = featured === "true" ? true : false;
