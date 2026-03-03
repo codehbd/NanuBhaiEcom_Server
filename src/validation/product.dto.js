@@ -40,6 +40,8 @@ const createProductSchema = zod.object({
     .min(1, "Product stock is required!"),
   location: zod
     .enum([
+      "All over BD",
+      "Insite City",
       "Barishal",
       "Chattogram",
       "Dhaka",
@@ -90,6 +92,8 @@ const updateProductSchema = zod.object({
   featured: zod.enum(["true", "false"], "Invalid featured status").optional(),
   location: zod
     .enum([
+      "All over BD",
+      "Insite City",
       "Barishal",
       "Chattogram",
       "Dhaka",

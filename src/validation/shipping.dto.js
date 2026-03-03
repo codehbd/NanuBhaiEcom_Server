@@ -3,6 +3,8 @@ const { default: zod } = require("zod");
 const createShippingSchema = zod.object({
   division: zod.enum(
     [
+      "All over BD",
+      "Insite City",
       "Barishal",
       "Chattogram",
       "Dhaka",
