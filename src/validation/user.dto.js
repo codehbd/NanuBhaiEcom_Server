@@ -49,6 +49,23 @@ const updateUserProfileSchema = zod.object({
     })
     .optional(),
   avatar: zod.instanceof(fileSchema).optional(),
+  bio: zod.string("Bio must be a string!").trim().optional(),
+  address: zod
+    .object({
+      country: zod.string().trim().optional(),
+      cityState: zod.string().trim().optional(),
+      postalCode: zod.string().trim().optional(),
+      taxId: zod.string().trim().optional(),
+    })
+    .optional(),
+  socialLinks: zod
+    .object({
+      facebook: zod.string().trim().optional(),
+      instagram: zod.string().trim().optional(),
+      twitter: zod.string().trim().optional(),
+      linkedin: zod.string().trim().optional(),
+    })
+    .optional(),
 });
 
 const updateUserPasswordSchema = zod.object({
